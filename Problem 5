@@ -1,0 +1,32 @@
+def calculate_assessed_value(county, market_value):
+    # Determine assessed value percent based on county
+    if county == "Cook":
+        assessed_percent = 0.90
+    elif county == "DuPage":
+        assessed_percent = 0.80
+    elif county == "McHenry":
+        assessed_percent = 0.75
+    elif county == "Kane":
+        assessed_percent = 0.60
+    else:
+        assessed_percent = 0.70
+    # Calculate assessed value
+    assessed_value = market_value * assessed_percent
+    return assessed_value
+
+total_market_value = 0
+total_assessed_value = 0
+
+while True:
+    proceed = input("Do you want to calculate home assessment value? (Yes/No): ")
+    if proceed.lower() != "yes":
+        break
+    county = input("Enter county: ")
+    market_value = float(input("Enter market value: "))
+    assessed_value = calculate_assessed_value(county, market_value)
+    total_market_value += market_value
+    total_assessed_value += assessed_value
+    print(f"Assessed value for property in {county} county: ${assessed_value:.2f}")
+
+print(f"Total market value of all properties: ${total_market_value:.2f}")
+print(f"Total assessed value of all properties: ${total_assessed_value:.2f}")
