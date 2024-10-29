@@ -1,0 +1,24 @@
+def calculate_ticket_price(miles):
+    # Determine ticket price based on miles
+    if miles >= 30:
+        return 12
+    elif 20 <= miles < 30:
+        return 10
+    elif 10 <= miles < 20:
+        return 8
+    else:
+        return 5
+
+total_ticket_sales = 0
+
+while True:
+    proceed = input("Do you want to calculate ticket price? (Yes/No): ")
+    if proceed.lower() != "yes":
+        break
+    last_name = input("Enter last name: ")
+    miles = int(input("Enter miles from downtown Chicago: "))
+    ticket_price = calculate_ticket_price(miles)
+    total_ticket_sales += ticket_price
+    print(f"Ticket price for {last_name}: ${ticket_price}")
+
+print(f"Total ticket sales: ${total_ticket_sales}")
